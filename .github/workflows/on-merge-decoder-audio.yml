@@ -104,7 +104,7 @@ jobs:
           base-ref: ${{ github.ref_name }}
           base-sha: ${{ github.event.before }}
           head-sha: ${{ github.sha }}
-          package-slug: decoder-audio
+          package-slug: qvac-lib-infer-decoder-audio
           package-json-path: packages/decoder-audio/package.json
           changelog-path: packages/decoder-audio/CHANGELOG.md
 
