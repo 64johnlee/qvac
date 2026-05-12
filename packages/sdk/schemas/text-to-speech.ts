@@ -1,12 +1,35 @@
 import { z } from "zod";
 import { modelSrcInputSchema } from "./model-src-utils";
 
-// TTS supported languages based on available models
+// TTS supported languages.
+//
+// Source of truth: the multilingual GGUFs shipped by `@qvac/tts-ggml`.
+// - Chatterbox MTL (`chatterbox-t3-mtl.gguf` + `chatterbox-s3gen-mtl.gguf`)
+//   covers all 18 codes below.
+// - Supertonic MTL (`supertonic-2`) covers a subset: en, ko, es, pt, fr.
+// - The English-only Chatterbox turbo and the English-only Supertonic GGUFs
+//   only use `en` (compatible with this enum).
+//
+// Keep alphabetised after `en`; revisit when a new MTL GGUF lands upstream.
 export const TTS_LANGUAGES = [
   "en", // English
-  "es", // Spanish
+  "ar", // Arabic
+  "da", // Danish
   "de", // German
+  "el", // Greek
+  "es", // Spanish
+  "fi", // Finnish
+  "fr", // French
   "it", // Italian
+  "ko", // Korean
+  "ms", // Malay
+  "nl", // Dutch
+  "no", // Norwegian
+  "pl", // Polish
+  "pt", // Portuguese
+  "sv", // Swedish
+  "sw", // Swahili
+  "tr", // Turkish
 ] as const;
 
 const ttsLanguageSchema = z.enum(TTS_LANGUAGES);

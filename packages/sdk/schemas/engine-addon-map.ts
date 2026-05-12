@@ -43,9 +43,12 @@ const LEGACY_ENGINE_TO_CANONICAL: Record<string, ModelRegistryEngine> = {
   "@qvac/vad-silero": "onnx-vad",
   "@qvac/tts": ModelType.ggmlTts,
   "@qvac/tts-onnx": ModelType.ggmlTts,
-  // Old canonical engine literal kept resolvable so persisted configs and
-  // cached registry data emitted before the ggml-tts rename keep loading.
-  "onnx-tts": ModelType.ggmlTts,
+  // Note: the prior canonical literal `"onnx-tts"` is intentionally NOT
+  // aliased here. Routing it to ggml-tts would be misleading because the
+  // new addon cannot load the old ONNX TTS files; persisted configs that
+  // still carry that engine string should fail loud at registry lookup so
+  // callers migrate to ggml-tts (or one of the package-name aliases) and
+  // pick GGUF model sources.
   // Tag-style names (used by some older registry entries)
   generation: ModelType.llamacppCompletion,
   transcription: ModelType.whispercppTranscription,

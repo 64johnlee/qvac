@@ -52,7 +52,7 @@ export async function* textToSpeech(
   if (sentenceStream) {
     if (!hasRunStream(model)) {
       throw new TextToSpeechFailedError(
-        "sentenceStream requires a TTS model with runStream (Supertonic engine)",
+        "sentenceStream requires a TTS model with runStream",
       );
     }
 

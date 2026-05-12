@@ -61,15 +61,16 @@ test("resolveCanonicalEngine: tag aliases for other engines still resolve", (t) 
   t.is(resolveCanonicalEngine("diffusion"), ModelType.sdcppGeneration);
 });
 
-// Backward compat: the previous canonical literal is removed from
-// `modelRegistryEngineSchema`, but `LEGACY_ENGINE_TO_CANONICAL` keeps it
-// resolvable so persisted configs and cached registry data emitted before the
-// ggml-tts rename keep loading.
-test("resolveCanonicalEngine: legacy 'onnx-tts' canonical literal still resolves", (t) => {
+// Regression guard: the prior canonical literal `"onnx-tts"` is intentionally
+// not aliased to ggml-tts. The new addon cannot load the old ONNX files, so
+// we'd rather fail loud at registry lookup than silently route to an
+// incompatible engine. Callers migrate to the canonical `"ggml-tts"` (or one
+// of the `@qvac/tts*` package-name aliases) and pick GGUF model sources.
+test("resolveCanonicalEngine: legacy 'onnx-tts' canonical literal is not aliased", (t) => {
   t.is(
     resolveCanonicalEngine("onnx-tts"),
-    ModelType.ggmlTts,
-    "onnx-tts must remain backward-compatible via the legacy alias map",
+    null,
+    "onnx-tts must surface as an unknown engine so old configs migrate explicitly",
   );
 });
 
