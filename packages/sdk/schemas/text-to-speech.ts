@@ -14,14 +14,35 @@ const ttsLanguageSchema = z.enum(TTS_LANGUAGES);
 export const ttsChatterboxRuntimeConfigSchema = z.object({
   ttsEngine: z.literal("chatterbox"),
   language: ttsLanguageSchema,
+  /** Move N layers to the GPU backend (Chatterbox). Pass 99 to move everything. Defaults to engine default. */
+  nGpuLayers: z.number().int().optional(),
+  /** Route inference through a GPU backend if available. Defaults to engine default. */
+  useGPU: z.boolean().optional(),
+  /** RNG seed for CFM initial noise + SineGen excitation. */
+  seed: z.number().int().optional(),
+  /** Native streaming chunk size in speech tokens (~25 ≈ 1s of audio). Chatterbox-only. */
+  streamChunkTokens: z.number().int().optional(),
+  /** Smaller first-chunk size for low first-audio-out latency. Chatterbox-only. */
+  streamFirstChunkTokens: z.number().int().optional(),
+  /** CFM Euler step count (1 halves cost, 2 matches Python meanflow). */
+  cfmSteps: z.number().int().optional(),
+  /** Resample engine output (24kHz native) to this rate before emitting. */
+  outputSampleRate: z.number().int().optional(),
 });
 
 export const ttsSupertonicRuntimeConfigSchema = z.object({
   ttsEngine: z.literal("supertonic"),
   language: ttsLanguageSchema,
+  /** Speech-rate factor. 0 → GGUF default. */
   ttsSpeed: z.number().optional(),
-  ttsNumInferenceSteps: z.number().optional(),
-  ttsSupertonicMultilingual: z.boolean().optional(),
+  /** Number of vector-estimator (CFM) steps. 0 → GGUF default. */
+  ttsNumInferenceSteps: z.number().int().optional(),
+  /** Voice id baked into the GGUF (e.g. "F1", "F2", "M1", "M2"). */
+  voiceName: z.string().optional(),
+  /** RNG seed for the vector-estimator latent. */
+  seed: z.number().int().optional(),
+  /** Resample engine output (44.1kHz native) to this rate before emitting. */
+  outputSampleRate: z.number().int().optional(),
 });
 
 export const ttsRuntimeConfigSchema = z.union([
@@ -29,23 +50,21 @@ export const ttsRuntimeConfigSchema = z.union([
   ttsSupertonicRuntimeConfigSchema,
 ]);
 
+// Chatterbox accepts either a `modelDir` containing both GGUFs, or explicit
+// per-file sources. Reference audio is optional (omit to use the GGUF's baked
+// default voice). `voicesDirSrc` is optional and points at a directory of
+// pre-baked voice profiles consumed by the native engine.
 export const ttsChatterboxConfigSchema = ttsChatterboxRuntimeConfigSchema.extend({
-  ttsTokenizerSrc: modelSrcInputSchema,
-  ttsSpeechEncoderSrc: modelSrcInputSchema,
-  ttsEmbedTokensSrc: modelSrcInputSchema,
-  ttsConditionalDecoderSrc: modelSrcInputSchema,
-  ttsLanguageModelSrc: modelSrcInputSchema,
-  referenceAudioSrc: modelSrcInputSchema,
+  ttsModelDirSrc: modelSrcInputSchema.optional(),
+  ttsT3ModelSrc: modelSrcInputSchema.optional(),
+  ttsS3genModelSrc: modelSrcInputSchema.optional(),
+  referenceAudioSrc: modelSrcInputSchema.optional(),
+  voicesDirSrc: modelSrcInputSchema.optional(),
 });
 
 export const ttsSupertonicConfigSchema = ttsSupertonicRuntimeConfigSchema.extend({
-  ttsTextEncoderSrc: modelSrcInputSchema,
-  ttsDurationPredictorSrc: modelSrcInputSchema,
-  ttsVectorEstimatorSrc: modelSrcInputSchema,
-  ttsVocoderSrc: modelSrcInputSchema,
-  ttsUnicodeIndexerSrc: modelSrcInputSchema,
-  ttsTtsConfigSrc: modelSrcInputSchema,
-  ttsVoiceStyleSrc: modelSrcInputSchema,
+  ttsModelDirSrc: modelSrcInputSchema.optional(),
+  ttsSupertonicModelSrc: modelSrcInputSchema.optional(),
 });
 
 export const ttsConfigSchema = z.union([

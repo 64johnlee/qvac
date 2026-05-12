@@ -843,7 +843,7 @@ test("tts: Piper Norman medium — full field mapping", (t: any) => {
     },
   });
 
-  t.is(model.engine, "onnx-tts", "legacy @qvac/tts resolved to onnx-tts");
+  t.is(model.engine, "ggml-tts", "legacy @qvac/tts resolved to ggml-tts");
   t.is(model.addon, "tts");
   t.is(model.modelId, "en_US-norman-medium.onnx");
   t.is(

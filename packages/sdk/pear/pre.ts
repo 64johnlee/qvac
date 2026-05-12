@@ -52,7 +52,7 @@ const BUILTIN_PLUGINS = [
   "@qvac/sdk/llamacpp-embedding/plugin",
   "@qvac/sdk/whispercpp-transcription/plugin",
   "@qvac/sdk/nmtcpp-translation/plugin",
-  "@qvac/sdk/onnx-tts/plugin",
+  "@qvac/sdk/ggml-tts/plugin",
   "@qvac/sdk/onnx-ocr/plugin",
   "@qvac/sdk/sdcpp-generation/plugin",
 ];
@@ -62,7 +62,7 @@ const BUILTIN_PLUGIN_EXPORTS: Record<string, string> = {
   "llamacpp-embedding": "embeddingsPlugin",
   "whispercpp-transcription": "whisperPlugin",
   "nmtcpp-translation": "nmtPlugin",
-  "onnx-tts": "ttsPlugin",
+  "ggml-tts": "ttsPlugin",
   "onnx-ocr": "ocrPlugin",
   "sdcpp-generation": "diffusionPlugin",
 };
