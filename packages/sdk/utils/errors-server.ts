@@ -161,18 +161,6 @@ export class TtsArtifactsRequiredError extends QvacErrorBase {
   }
 }
 
-export class TtsReferenceAudioRequiredError extends QvacErrorBase {
-  constructor(cause?: unknown) {
-    super(
-      createErrorOptions(
-        SDK_SERVER_ERROR_CODES.TTS_REFERENCE_AUDIO_REQUIRED,
-        undefined,
-        cause,
-      ),
-    );
-  }
-}
-
 export class LegacyParakeetModelDeprecatedError extends QvacErrorBase {
   constructor(legacyFields: readonly string[], cause?: unknown) {
     super(

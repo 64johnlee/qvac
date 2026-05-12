@@ -54,18 +54,40 @@ export const ttsRuntimeConfigSchema = z.union([
 // per-file sources. Reference audio is optional (omit to use the GGUF's baked
 // default voice). `voicesDirSrc` is optional and points at a directory of
 // pre-baked voice profiles consumed by the native engine.
-export const ttsChatterboxConfigSchema = ttsChatterboxRuntimeConfigSchema.extend({
-  ttsModelDirSrc: modelSrcInputSchema.optional(),
-  ttsT3ModelSrc: modelSrcInputSchema.optional(),
-  ttsS3genModelSrc: modelSrcInputSchema.optional(),
-  referenceAudioSrc: modelSrcInputSchema.optional(),
-  voicesDirSrc: modelSrcInputSchema.optional(),
-});
+//
+// The `.refine()` mirrors the bare-side `TtsArtifactsRequiredError` check so
+// missing-source configs fail at the schema layer (client-side) rather than
+// only after RPC reaches the worker.
+export const ttsChatterboxConfigSchema = ttsChatterboxRuntimeConfigSchema
+  .extend({
+    ttsModelDirSrc: modelSrcInputSchema.optional(),
+    ttsT3ModelSrc: modelSrcInputSchema.optional(),
+    ttsS3genModelSrc: modelSrcInputSchema.optional(),
+    referenceAudioSrc: modelSrcInputSchema.optional(),
+    voicesDirSrc: modelSrcInputSchema.optional(),
+  })
+  .refine(
+    (cfg) =>
+      cfg.ttsModelDirSrc != null ||
+      (cfg.ttsT3ModelSrc != null && cfg.ttsS3genModelSrc != null),
+    {
+      message:
+        "Chatterbox TTS requires either ttsModelDirSrc or both ttsT3ModelSrc and ttsS3genModelSrc",
+    },
+  );
 
-export const ttsSupertonicConfigSchema = ttsSupertonicRuntimeConfigSchema.extend({
-  ttsModelDirSrc: modelSrcInputSchema.optional(),
-  ttsSupertonicModelSrc: modelSrcInputSchema.optional(),
-});
+export const ttsSupertonicConfigSchema = ttsSupertonicRuntimeConfigSchema
+  .extend({
+    ttsModelDirSrc: modelSrcInputSchema.optional(),
+    ttsSupertonicModelSrc: modelSrcInputSchema.optional(),
+  })
+  .refine(
+    (cfg) => cfg.ttsModelDirSrc != null || cfg.ttsSupertonicModelSrc != null,
+    {
+      message:
+        "Supertonic TTS requires either ttsModelDirSrc or ttsSupertonicModelSrc",
+    },
+  );
 
 export const ttsConfigSchema = z.union([
   ttsChatterboxConfigSchema,

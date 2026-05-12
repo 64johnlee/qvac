@@ -17,7 +17,8 @@ export const SDK_SERVER_ERROR_CODES = {
   PROJECTION_MODEL_REQUIRED: 52204,
   VAD_MODEL_REQUIRED: 52205,
   TTS_ARTIFACTS_REQUIRED: 52208,
-  TTS_REFERENCE_AUDIO_REQUIRED: 52209,
+  // 52209 reserved (formerly TTS_REFERENCE_AUDIO_REQUIRED; removed when
+  // referenceAudioSrc became optional under the ggml-tts addon).
   LEGACY_PARAKEET_MODEL_DEPRECATED: 52210,
 
   // Model Operations (52,400-52,799)
@@ -179,12 +180,7 @@ const serverErrorDefinitions: ErrorCodesMap = {
   [SDK_SERVER_ERROR_CODES.TTS_ARTIFACTS_REQUIRED]: {
     name: "TTS_ARTIFACTS_REQUIRED",
     message:
-      "TTS (Chatterbox) requires ttsTokenizerSrc, ttsSpeechEncoderSrc, ttsEmbedTokensSrc, ttsConditionalDecoderSrc, and ttsLanguageModelSrc",
-  },
-  [SDK_SERVER_ERROR_CODES.TTS_REFERENCE_AUDIO_REQUIRED]: {
-    name: "TTS_REFERENCE_AUDIO_REQUIRED",
-    message:
-      "TTS (Chatterbox) requires referenceAudioSrc (path or URL to a WAV file for voice cloning)",
+      "TTS requires either ttsModelDirSrc or, for Chatterbox, both ttsT3ModelSrc and ttsS3genModelSrc, or, for Supertonic, ttsSupertonicModelSrc",
   },
   [SDK_SERVER_ERROR_CODES.LEGACY_PARAKEET_MODEL_DEPRECATED]: {
     name: "LEGACY_PARAKEET_MODEL_DEPRECATED",
