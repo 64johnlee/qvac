@@ -43,6 +43,9 @@ const LEGACY_ENGINE_TO_CANONICAL: Record<string, ModelRegistryEngine> = {
   "@qvac/vad-silero": "onnx-vad",
   "@qvac/tts": ModelType.ggmlTts,
   "@qvac/tts-onnx": ModelType.ggmlTts,
+  // Old canonical engine literal kept resolvable so persisted configs and
+  // cached registry data emitted before the ggml-tts rename keep loading.
+  "onnx-tts": ModelType.ggmlTts,
   // Tag-style names (used by some older registry entries)
   generation: ModelType.llamacppCompletion,
   transcription: ModelType.whispercppTranscription,

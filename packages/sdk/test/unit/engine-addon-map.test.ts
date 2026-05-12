@@ -61,13 +61,15 @@ test("resolveCanonicalEngine: tag aliases for other engines still resolve", (t) 
   t.is(resolveCanonicalEngine("diffusion"), ModelType.sdcppGeneration);
 });
 
-// Regression guard for the breaking rename: the old canonical literal must no
-// longer be accepted by the registry-side schema.
-test("resolveCanonicalEngine: legacy 'onnx-tts' canonical literal is gone", (t) => {
+// Backward compat: the previous canonical literal is removed from
+// `modelRegistryEngineSchema`, but `LEGACY_ENGINE_TO_CANONICAL` keeps it
+// resolvable so persisted configs and cached registry data emitted before the
+// ggml-tts rename keep loading.
+test("resolveCanonicalEngine: legacy 'onnx-tts' canonical literal still resolves", (t) => {
   t.is(
     resolveCanonicalEngine("onnx-tts"),
-    null,
-    "onnx-tts is not in modelRegistryEngineSchema and has no legacy alias entry",
+    ModelType.ggmlTts,
+    "onnx-tts must remain backward-compatible via the legacy alias map",
   );
 });
 
