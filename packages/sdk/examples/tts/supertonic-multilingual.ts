@@ -3,7 +3,7 @@ import {
     textToSpeech,
     unloadModel,
     type ModelProgressUpdate,
-    TTS_SUPERTONIC2_SUPERTONIC,
+    TTS_MULTILINGUAL_SUPERTONIC2,
   } from "@qvac/sdk";
   import {
     createWav,
@@ -18,14 +18,14 @@ import {
   
   try {
     const modelId = await loadModel({
-      modelSrc: TTS_SUPERTONIC2_SUPERTONIC.src,
+      modelSrc: TTS_MULTILINGUAL_SUPERTONIC2.src,
       modelType: "tts",
       modelConfig: {
         ttsEngine: "supertonic",
         language: "es",
         ttsSpeed: 1.05,
         ttsNumInferenceSteps: 5,
-        ttsSupertonicModelSrc: TTS_SUPERTONIC2_SUPERTONIC.src,
+        ttsSupertonicModelSrc: TTS_MULTILINGUAL_SUPERTONIC2.src,
       },
       onProgress: (progress: ModelProgressUpdate) => {
         console.log(progress);

@@ -19,7 +19,7 @@ import {
   WHISPER_TINY,
   VAD_SILERO_5_1_2,
   LLAMA_3_2_1B_INST_Q4_0,
-  TTS_SUPERTONIC,
+  TTS_EN_SUPERTONIC,
 } from "@qvac/sdk";
 import { spawnSync } from "child_process";
 import { startMicrophone } from "../audio/mic-input";
@@ -121,14 +121,14 @@ const llmModelId = await loadModel({
 
 console.log("Loading Supertonic TTS...");
 const ttsModelId = await loadModel({
-  modelSrc: TTS_SUPERTONIC.src,
+  modelSrc: TTS_EN_SUPERTONIC.src,
   modelType: "tts",
   modelConfig: {
     ttsEngine: "supertonic",
     language: "en",
     ttsSpeed: 1.05,
     ttsNumInferenceSteps: 5,
-    ttsSupertonicModelSrc: TTS_SUPERTONIC.src,
+    ttsSupertonicModelSrc: TTS_EN_SUPERTONIC.src,
   },
 });
 

@@ -20,7 +20,7 @@ import {
   unloadModel,
   type ModelProgressUpdate,
   LLAMA_3_2_1B_INST_Q4_0,
-  TTS_SUPERTONIC,
+  TTS_EN_SUPERTONIC,
 } from "@qvac/sdk";
 import { createWav, playPcmInt16Chunk } from "./utils";
 
@@ -84,14 +84,14 @@ try {
 
   console.log("Loading Supertonic TTS (registry)…");
   const ttsModelId = await loadModel({
-    modelSrc: TTS_SUPERTONIC.src,
+    modelSrc: TTS_EN_SUPERTONIC.src,
     modelType: "tts",
     modelConfig: {
       ttsEngine: "supertonic",
       language: "en",
       ttsSpeed: 1.05,
       ttsNumInferenceSteps: 10,
-      ttsSupertonicModelSrc: TTS_SUPERTONIC.src,
+      ttsSupertonicModelSrc: TTS_EN_SUPERTONIC.src,
     },
     onProgress: (progress: ModelProgressUpdate) =>
       console.log(`TTS load: ${progress.percentage.toFixed(1)}%`),

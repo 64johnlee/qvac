@@ -3,8 +3,8 @@ import {
   textToSpeech,
   unloadModel,
   type ModelProgressUpdate,
-  TTS_T3_CHATTERBOX_1,
-  TTS_S3GEN_CHATTERBOX_1,
+  TTS_T3_TURBO_EN_CHATTERBOX,
+  TTS_S3GEN_EN_CHATTERBOX,
 } from "@qvac/sdk";
 import {
   createWav,
@@ -31,13 +31,13 @@ try {
   // GGUF is treated as the primary model; the s3gen decoder is loaded as a
   // companion artifact. Voice cloning uses the user-supplied reference WAV.
   const modelId = await loadModel({
-    modelSrc: TTS_T3_CHATTERBOX_1.src,
+    modelSrc: TTS_T3_TURBO_EN_CHATTERBOX.src,
     modelType: "tts",
     modelConfig: {
       ttsEngine: "chatterbox",
       language: "en",
-      ttsT3ModelSrc: TTS_T3_CHATTERBOX_1.src,
-      ttsS3genModelSrc: TTS_S3GEN_CHATTERBOX_1.src,
+      ttsT3ModelSrc: TTS_T3_TURBO_EN_CHATTERBOX.src,
+      ttsS3genModelSrc: TTS_S3GEN_EN_CHATTERBOX.src,
       referenceAudioSrc,
     },
     onProgress: (progress: ModelProgressUpdate) => {
