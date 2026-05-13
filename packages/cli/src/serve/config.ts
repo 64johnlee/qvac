@@ -14,6 +14,7 @@ const ENDPOINT_CATEGORY: Record<string, string> = {
   nmt: 'translation',
   'nmtcpp-translation': 'translation',
   tts: 'speech',
+  'ggml-tts': 'speech',
   'onnx-tts': 'speech',
   ocr: 'ocr',
   'onnx-ocr': 'ocr',

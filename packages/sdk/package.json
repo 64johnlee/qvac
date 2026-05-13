@@ -92,6 +92,10 @@
       "types": "./dist/server/bare/plugins/ggml-tts/plugin.d.ts",
       "import": "./dist/server/bare/plugins/ggml-tts/plugin.js"
     },
+    "./onnx-tts/plugin": {
+      "types": "./dist/server/bare/plugins/ggml-tts/plugin.d.ts",
+      "import": "./dist/server/bare/plugins/ggml-tts/plugin.js"
+    },
     "./onnx-ocr/plugin": {
       "types": "./dist/server/bare/plugins/onnx-ocr/plugin.d.ts",
       "import": "./dist/server/bare/plugins/onnx-ocr/plugin.js"
