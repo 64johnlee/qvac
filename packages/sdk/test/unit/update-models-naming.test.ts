@@ -843,7 +843,17 @@ test("tts: Piper Norman medium — full field mapping", (t: any) => {
     },
   });
 
-  t.is(model.engine, "ggml-tts", "legacy @qvac/tts resolved to ggml-tts");
+  // The legacy `@qvac/tts` engine resolves to `ggml-tts`, but the registry
+  // path is still an `.onnx` file — the new GGML addon can't load it.
+  // Processing flips the engine back to `onnx-tts` (recognised at the
+  // schema level but unrouted) so consumers picking this constant fail
+  // loud at modelType validation rather than at native load. See
+  // `processRegistryModel` / `isDeadOnnxTtsEntry` for the gate.
+  t.is(
+    model.engine,
+    "onnx-tts",
+    "non-.gguf TTS entries stay on the dead `onnx-tts` engine label",
+  );
   t.is(model.addon, "tts");
   t.is(model.modelId, "en_US-norman-medium.onnx");
   t.is(

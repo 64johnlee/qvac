@@ -61,17 +61,27 @@ test("resolveCanonicalEngine: tag aliases for other engines still resolve", (t) 
   t.is(resolveCanonicalEngine("diffusion"), ModelType.sdcppGeneration);
 });
 
-// Regression guard: the prior canonical literal `"onnx-tts"` is intentionally
-// not aliased to ggml-tts. The new addon cannot load the old ONNX files, so
-// we'd rather fail loud at registry lookup than silently route to an
-// incompatible engine. Callers migrate to the canonical `"ggml-tts"` (or one
-// of the `@qvac/tts*` package-name aliases) and pick GGUF model sources.
-test("resolveCanonicalEngine: legacy 'onnx-tts' canonical literal is not aliased", (t) => {
+// `"onnx-tts"` is recognised at the registry-schema level so dead ONNX TTS
+// entries (registry rows whose `registryPath` is still an `.onnx` file) stay
+// schema-valid, but it is intentionally NOT aliased to `ggml-tts` in
+// `LEGACY_ENGINE_TO_CANONICAL`. The new addon cannot load the old ONNX files,
+// so a constant whose `engine` is `"onnx-tts"` flows back through
+// `inferModelTypeFromModelSrc` as `"onnx-tts"` (not as `"ggml-tts"` via the
+// `addon: "tts"` fallback), which then fails at `loadModel`'s modelType
+// schema validation — explicit, actionable, no silent C++ parse failure.
+test("resolveCanonicalEngine: legacy 'onnx-tts' canonical literal is recognised, not remapped", (t) => {
   t.is(
     resolveCanonicalEngine("onnx-tts"),
-    null,
-    "onnx-tts must surface as an unknown engine so old configs migrate explicitly",
+    "onnx-tts",
+    "onnx-tts must round-trip as itself so dead ONNX TTS entries fail loud at modelType validation instead of silently routing to ggml-tts",
   );
+});
+
+test("getAddonFromEngine: 'onnx-tts' maps to the 'tts' addon bucket for getModelInfo reporting", (t) => {
+  // Even though no plugin is registered for `onnx-tts`, the engine still
+  // belongs to the TTS addon family so model-info responses surface the
+  // correct addon classification.
+  t.is(getAddonFromEngine("onnx-tts"), "tts");
 });
 
 test("resolveCanonicalEngine: unknown engines return null", (t) => {

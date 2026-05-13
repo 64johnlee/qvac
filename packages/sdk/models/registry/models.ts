@@ -16513,7 +16513,7 @@ export const models = [
     expectedSize: 6350448,
     sha256Checksum:
       "1656d0d31332bae1854839959a3139300ebb67c178651dfa3f8c5fbfa5351351",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
     companionSet: {
@@ -16569,7 +16569,7 @@ export const models = [
     expectedSize: 533970816,
     sha256Checksum:
       "51d58345a272747665ec9d5bb61e01835258a940e321a288582ac4c18cf01b5a",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -16588,7 +16588,7 @@ export const models = [
     expectedSize: 13286,
     sha256Checksum:
       "f785819ca4f6271262d5bb8971d62796c3a909e3b031982c113dbe83a4c3b854",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
     companionSet: {
@@ -16644,7 +16644,7 @@ export const models = [
     expectedSize: 68390912,
     sha256Checksum:
       "2a15f7dd73b2ee47f6edf87740324011594b5a528ed6471ae55e327ed6cad68c",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -16663,7 +16663,7 @@ export const models = [
     expectedSize: 172657,
     sha256Checksum:
       "0c36a5bbbc2a4ed8c345033896612cd320fd0971a0f5e6447ab4cdd2d7f22e36",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp16",
     params: "",
     companionSet: {
@@ -16719,7 +16719,7 @@ export const models = [
     expectedSize: 1040316416,
     sha256Checksum:
       "16dca11ae994e78427fa3090cc6faf347a15988ca40809c1bd9f2721f3b759a0",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp16",
     params: "",
   },
@@ -16738,7 +16738,7 @@ export const models = [
     expectedSize: 227911,
     sha256Checksum:
       "7f8cdca83b2493536cbf3acf421199808a3d68736f55f4eabd20ef8a99da4313",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4",
     params: "",
     companionSet: {
@@ -16794,7 +16794,7 @@ export const models = [
     expectedSize: 353621248,
     sha256Checksum:
       "e79ab8784122a501718868b9631ff46e151c552d9b24e50f25d721f375e3526c",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4",
     params: "",
   },
@@ -16813,7 +16813,7 @@ export const models = [
     expectedSize: 229388,
     sha256Checksum:
       "3b78e9235be5e2e2a811e482399155cb30415f6d87c98c21d12bf48843fc928f",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4f16",
     params: "",
     companionSet: {
@@ -16869,7 +16869,7 @@ export const models = [
     expectedSize: 304737408,
     sha256Checksum:
       "bdbc79504d20742b5d028074b4f1cdca8872e013fdfbbcea6b8b03154fe85a42",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4f16",
     params: "",
   },
@@ -16888,7 +16888,7 @@ export const models = [
     expectedSize: 171387,
     sha256Checksum:
       "861a34585605e8ad671051788afc495dcbeaee833a41523a1b33aded9c3babc7",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
     companionSet: {
@@ -16944,7 +16944,7 @@ export const models = [
     expectedSize: 2080632832,
     sha256Checksum:
       "b3556d41085196c122b7197e4d44ec4475b6d7cfe0971a70faa95caa38ad787a",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -16963,7 +16963,7 @@ export const models = [
     expectedSize: 1184608,
     sha256Checksum:
       "8f1c8a0f89b77bf9cd5dd8f2e034eb2c79dc00fe70d41196b28c257643b00ccb",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
     companionSet: {
@@ -17019,7 +17019,7 @@ export const models = [
     expectedSize: 591274880,
     sha256Checksum:
       "92f8f290fc9720e169bc2412c507209e20b03f6564bc3243739e25c56f7dfb8f",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -17038,7 +17038,7 @@ export const models = [
     expectedSize: 71798,
     sha256Checksum:
       "29d48c4a178f6af3ad5130097c34744639e9294847b38a7b912c8c68027cb819",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -17057,7 +17057,7 @@ export const models = [
     expectedSize: 398102,
     sha256Checksum:
       "9a639a8c05c9be111848562c5cf10ea2697a589c6341830aac479d0ce7b75aa9",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
     companionSet: {
@@ -17113,7 +17113,7 @@ export const models = [
     expectedSize: 132098880,
     sha256Checksum:
       "cde4abf1136defce235bc446eaab4954a57721ae8d5a4754cdd337bf191b612f",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -17132,7 +17132,7 @@ export const models = [
     expectedSize: 433169,
     sha256Checksum:
       "50a03d29d5dc95918eeff578f542b814f3cf5a741f927116f5a8462a76ff6898",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
     companionSet: {
@@ -17188,7 +17188,7 @@ export const models = [
     expectedSize: 28426752,
     sha256Checksum:
       "6415854f135a318909dc716e90f83a391d9a91bd9da09bdb6d6763d6b0a6c102",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -17207,7 +17207,7 @@ export const models = [
     expectedSize: 59921,
     sha256Checksum:
       "83c104006dabcd6b568c0d5acb6fec18f65609d2391dd2c459e4440e85027669",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
     companionSet: {
@@ -17263,7 +17263,7 @@ export const models = [
     expectedSize: 101353472,
     sha256Checksum:
       "ea52402c9ba5131ee2b3901a86db2f0b435b322169cd75157e053493d967d17f",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -17282,7 +17282,7 @@ export const models = [
     expectedSize: 2038,
     sha256Checksum:
       "da6954f045585fc12c8ea9831b3c3eb1c5bffc8ef7ff6b6db7de781cd472ee01",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -17301,7 +17301,7 @@ export const models = [
     expectedSize: 51712,
     sha256Checksum:
       "5ef84e3421e4f80994a5a40a18ba39ba9fc48175c41ae6cf3e56418820872dbf",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -17320,7 +17320,7 @@ export const models = [
     expectedSize: 51712,
     sha256Checksum:
       "1949cf0e066c4278980d2b835cf334dab0f8f781704c9116bf48a072278f7c72",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -17339,7 +17339,7 @@ export const models = [
     expectedSize: 51712,
     sha256Checksum:
       "38ee1d62ad8a02877ab0d08b501742b76cf3586ed888514df1a7f27cc0f8d171",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -17358,7 +17358,7 @@ export const models = [
     expectedSize: 51712,
     sha256Checksum:
       "63890c361868a296c51f9aee114f51e0a9a92c3f46a91582539545f7ab408a72",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -17377,7 +17377,7 @@ export const models = [
     expectedSize: 51712,
     sha256Checksum:
       "793223d8d11e0ee49721842ebdc7bd46b4487579588f646953e75ad3fc8ffb9c",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -17396,7 +17396,7 @@ export const models = [
     expectedSize: 51712,
     sha256Checksum:
       "7d53fbaaccf39a358010dcc5f289fc1d5cb350fe5f518be35f62cc518d794892",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -17415,7 +17415,7 @@ export const models = [
     expectedSize: 51712,
     sha256Checksum:
       "2e02979a394f89002d920f0bcc006206d4cd8da90e8cc82d0532831a5bb20e79",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -17434,7 +17434,7 @@ export const models = [
     expectedSize: 51712,
     sha256Checksum:
       "470d2b6b77239628ce90ba879ca5366fb5e6103fdd7e7053954a7b6d5dc2142a",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -17453,7 +17453,7 @@ export const models = [
     expectedSize: 51712,
     sha256Checksum:
       "4700e92c614fd34971a8ed9c8140c2f2162ab8ef3067f8e1e7ef67c3e6488fb7",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -17472,7 +17472,7 @@ export const models = [
     expectedSize: 51712,
     sha256Checksum:
       "c40fbc4093d113ef261cbc7bfe3f080dd813d3168347d682c78b1ca71a07da1f",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -17567,7 +17567,7 @@ export const models = [
     expectedSize: 1815317,
     sha256Checksum:
       "8afa7f4db9f356f7bfb575bb207d8673a728a7baf6773e0b10226a5e15687f2a",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -17586,7 +17586,7 @@ export const models = [
     expectedSize: 190195,
     sha256Checksum:
       "841e96d261dffdf1dc974f3d29e2cfcf1b16fd0b358749c1ace0bbfa1d4c8ddd",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
     companionSet: {
@@ -17642,7 +17642,7 @@ export const models = [
     expectedSize: 51773440,
     sha256Checksum:
       "a125a4ede7cfdd1073d906a3cadf2171a30be6a40f296ad28772e0ba258de8c5",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -17661,7 +17661,7 @@ export const models = [
     expectedSize: 7484,
     sha256Checksum:
       "f66fd164c55fd1b07e5cea5e687c71522b192f452691128fd7ae4e6b26dbc683",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
     companionSet: {
@@ -17717,7 +17717,7 @@ export const models = [
     expectedSize: 4263936,
     sha256Checksum:
       "b855e309b027af9aa75285b97b345571b6bd695a30fde434d06c979d83885fd6",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -17772,7 +17772,7 @@ export const models = [
     expectedSize: 2104016,
     sha256Checksum:
       "cbdc0281548eb90a02fa2430647237df63fa0cb695e42b91c10b860b9b6d2230",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp16",
     params: "",
     companionSet: {
@@ -17828,7 +17828,7 @@ export const models = [
     expectedSize: 384019328,
     sha256Checksum:
       "c6c3e79e6ff86bc41f77381a3d67b8edaa16b13e43a2700ca8159d0894bd594a",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp16",
     params: "",
   },
@@ -17847,7 +17847,7 @@ export const models = [
     expectedSize: 2179022,
     sha256Checksum:
       "dccb7a6cea3472dc7f7d070eeb70ade18e6327fb4ec61a3d62cf211bfed90ea2",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4",
     params: "",
     companionSet: {
@@ -17903,7 +17903,7 @@ export const models = [
     expectedSize: 246397384,
     sha256Checksum:
       "b5c5317e0b79a1a19dd3d5e2b2091ea06b15716716ab801a54eaeb906c6971ec",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4",
     params: "",
   },
@@ -17922,7 +17922,7 @@ export const models = [
     expectedSize: 2394210,
     sha256Checksum:
       "17c9f7caef818605df2dc197c2f41682c0bda7fe437b8652dae8366de8b68b7e",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4f16",
     params: "",
     companionSet: {
@@ -17978,7 +17978,7 @@ export const models = [
     expectedSize: 162996136,
     sha256Checksum:
       "3e53cc7cc05e72957797c620e1bf0c6d6b909df937de4756c6e534d50854ca3e",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4f16",
     params: "",
   },
@@ -17997,7 +17997,7 @@ export const models = [
     expectedSize: 2202035,
     sha256Checksum:
       "2af3b150196d9d559cd3c91e03da80eb27a466032369dc2b57ea729cddad3ebb",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "quantized",
     params: "",
     companionSet: {
@@ -18053,7 +18053,7 @@ export const models = [
     expectedSize: 326548688,
     sha256Checksum:
       "4918ca09e05e41d2b4aa1ace6201d1cd911ffc58a42801002bab177d495cfe0a",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "quantized",
     params: "",
   },
@@ -18072,7 +18072,7 @@ export const models = [
     expectedSize: 1889468,
     sha256Checksum:
       "8c43f3a1d0ddb1a86e226a244d7cda5396c67f5c6412789c23900c646e3ffc50",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
     companionSet: {
@@ -18128,7 +18128,7 @@ export const models = [
     expectedSize: 768593792,
     sha256Checksum:
       "05f162a519f3e9abaf0b7337ae037f4af8b2b30c4455d39b2c61ed3a9b2b5476",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -18147,7 +18147,7 @@ export const models = [
     expectedSize: 1754,
     sha256Checksum:
       "f7a7a83e91337e10add2fad054544421f9080e27b72af1aef27f339a1a66776c",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp16",
     params: "",
     companionSet: {
@@ -18203,7 +18203,7 @@ export const models = [
     expectedSize: 116406272,
     sha256Checksum:
       "cdda886a9e58ad39059fe8f6cf5a3a628994a1a2dfc1a8b58502c252fec70327",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp16",
     params: "",
   },
@@ -18222,7 +18222,7 @@ export const models = [
     expectedSize: 2844,
     sha256Checksum:
       "fd6ba1d22902e8f539d3dd6d7c1c44b98ebb4c84ebbb5e47fcb826ddcf667561",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4",
     params: "",
     companionSet: {
@@ -18278,7 +18278,7 @@ export const models = [
     expectedSize: 37286384,
     sha256Checksum:
       "f54a51e234b509b64c3a03bb79e1149fba7e2eba6c2d9c222f18883379e1f5d8",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4",
     params: "",
   },
@@ -18297,7 +18297,7 @@ export const models = [
     expectedSize: 2548,
     sha256Checksum:
       "e5c9507c89e770e35d68bdd669e4ae44b34272232e84f010f2c97959feae79b3",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4f16",
     params: "",
     companionSet: {
@@ -18353,7 +18353,7 @@ export const models = [
     expectedSize: 33648688,
     sha256Checksum:
       "37e96447b5f3ef46f46fb35cc599cfcb95b277e5528cc0c89bab78169da620ef",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4f16",
     params: "",
   },
@@ -18372,7 +18372,7 @@ export const models = [
     expectedSize: 2887,
     sha256Checksum:
       "0efe1bc01c2c48a98425a74444fd9887924d887f922c2722a6ec961ebb9e1db6",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "quantized",
     params: "",
     companionSet: {
@@ -18428,7 +18428,7 @@ export const models = [
     expectedSize: 67297376,
     sha256Checksum:
       "9025d04c124899823124b1d7bb7069b1f535fb8a6c2d88f97520eb6fecced986",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "quantized",
     params: "",
   },
@@ -18447,7 +18447,7 @@ export const models = [
     expectedSize: 2058,
     sha256Checksum:
       "27796e8252f36b463b0421cafdcc35b5f1e670ab0d96c9182f37ac6571c2f4bc",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
     companionSet: {
@@ -18503,7 +18503,7 @@ export const models = [
     expectedSize: 232812544,
     sha256Checksum:
       "a1c37edc6ec6adb655351f02e958da297221b50211c2c01b69312cb6f008a293",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -18522,7 +18522,7 @@ export const models = [
     expectedSize: 209456,
     sha256Checksum:
       "396b35570dd1dbc5f537ffc932c3e69130ab8a09bf1390469d92338c8eae7da4",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp16",
     params: "",
     companionSet: {
@@ -18578,7 +18578,7 @@ export const models = [
     expectedSize: 634862406,
     sha256Checksum:
       "d730d6437126d3e232747b26e2a7adece68844f22133277ca5012298ffe36f93",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp16",
     params: "",
   },
@@ -18597,7 +18597,7 @@ export const models = [
     expectedSize: 274572,
     sha256Checksum:
       "b39d03d3f8b943b9e60c6fce3fb41191dbc1df4589f913291db1e214eef669b1",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4",
     params: "",
     companionSet: {
@@ -18653,7 +18653,7 @@ export const models = [
     expectedSize: 204456572,
     sha256Checksum:
       "2c029dc0acf48752473d8c74c72b5ceaaad76b9886fe106eaf2022142d5b5d5e",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4",
     params: "",
   },
@@ -18672,7 +18672,7 @@ export const models = [
     expectedSize: 276803,
     sha256Checksum:
       "4c5d83674c52bb71683a1ea1f60e2608b80cda48aafce67e8f8c03162c474ad5",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4f16",
     params: "",
     companionSet: {
@@ -18728,7 +18728,7 @@ export const models = [
     expectedSize: 183981430,
     sha256Checksum:
       "f084f21f977e365e76e622d2958c309ff894537f7b7133ac7fc5ce8fc055d6f9",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4f16",
     params: "",
   },
@@ -18747,7 +18747,7 @@ export const models = [
     expectedSize: 279670,
     sha256Checksum:
       "0b40581277e30b7034331ec8c3ad47ed71d321f015b387a95221e54e2fcbfde8",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "quantized",
     params: "",
     companionSet: {
@@ -18803,7 +18803,7 @@ export const models = [
     expectedSize: 367962860,
     sha256Checksum:
       "ec9945df36cb5d131d46688f2609fd715fbfcb0b8ee9681af5c84118de2d55a2",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "quantized",
     params: "",
   },
@@ -18822,7 +18822,7 @@ export const models = [
     expectedSize: 207266,
     sha256Checksum:
       "c12e31df78c74f9589b165c8d51e65171f5028b77b7fedb41900f55f7f410dc8",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
     companionSet: {
@@ -18878,7 +18878,7 @@ export const models = [
     expectedSize: 1269724812,
     sha256Checksum:
       "67db106868f5354b2e425651f1791aef36ae3e6f00ac5e1d91e32c985cad6b39",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -18897,7 +18897,7 @@ export const models = [
     expectedSize: 1189888,
     sha256Checksum:
       "5544f87c3e1615a31f5dc3ccdf9ba52a9f5fb8f6018e72796235fc1cfd5ebc9f",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp16",
     params: "",
     companionSet: {
@@ -18953,7 +18953,7 @@ export const models = [
     expectedSize: 522307136,
     sha256Checksum:
       "d24b817ff61489373ab13033cbdc28a5ba8347341248a00f9a63f10888e81d73",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp16",
     params: "",
   },
@@ -18972,7 +18972,7 @@ export const models = [
     expectedSize: 1200346,
     sha256Checksum:
       "37956c20b67bed85a0da4bc83509d67b5969a1b257d1c546516a5236a17ad71e",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4",
     params: "",
     companionSet: {
@@ -19028,7 +19028,7 @@ export const models = [
     expectedSize: 229560112,
     sha256Checksum:
       "58956db217c6443e49c91bdd54d7cf76b4a243f225c748b7bf746459fc27bc7d",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4",
     params: "",
   },
@@ -19047,7 +19047,7 @@ export const models = [
     expectedSize: 1217655,
     sha256Checksum:
       "004407d26127c1d8e974bd213ecff8dbe67611527ca7a1930e656b80d9c51125",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4f16",
     params: "",
     companionSet: {
@@ -19103,7 +19103,7 @@ export const models = [
     expectedSize: 177289008,
     sha256Checksum:
       "c017ab57887418e0609afdef52b0cbc17f43cb304e78af44300c0292cd2b2fa9",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "q4f16",
     params: "",
   },
@@ -19122,7 +19122,7 @@ export const models = [
     expectedSize: 1205728,
     sha256Checksum:
       "5b6f15870a43cf97892df86fc550a0ef4763522d527cde72b2a4316f80a34de4",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "quantized",
     params: "",
     companionSet: {
@@ -19178,7 +19178,7 @@ export const models = [
     expectedSize: 354676576,
     sha256Checksum:
       "d59861fb55e806fbeee731da9d4f8ff819fb5735de5d15e262d902594ee4dbb6",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "quantized",
     params: "",
   },
@@ -19197,7 +19197,7 @@ export const models = [
     expectedSize: 1172072,
     sha256Checksum:
       "4d66128037517dd51d370edc9b89ce36d42c75dcbd96e7216c7fb45dfae36045",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
     companionSet: {
@@ -19253,7 +19253,7 @@ export const models = [
     expectedSize: 1044712832,
     sha256Checksum:
       "c9915ff6c529e7bb80983b525255e6744d6c39c7e35b12720925ba99ed0d0a2f",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -19272,7 +19272,7 @@ export const models = [
     expectedSize: 3562272,
     sha256Checksum:
       "3f04e34bea22f9144d1a19151154095bc9ce0430bf421304f5797e716288a906",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19291,7 +19291,7 @@ export const models = [
     expectedSize: 1521526,
     sha256Checksum:
       "6d556b3691165c364be91dc0bd894656b5949f5acd2750d8ec2f954010845011",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -19310,7 +19310,7 @@ export const models = [
     expectedSize: 27431318,
     sha256Checksum:
       "dd5f535ed629f7df86071043e15f541ce1b2ab7f1bdbce4c7892b307bca79fa3",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -19329,7 +19329,7 @@ export const models = [
     expectedSize: 8699,
     sha256Checksum:
       "ee531d9af9b80438a2ed703e22155ee6c83b12595ab22fd3bb6de94c7502fe96",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19348,7 +19348,7 @@ export const models = [
     expectedSize: 262196,
     sha256Checksum:
       "b7662a73a0703f43b97c0f2e089f8e8325e26f5d841aca393b5a54c509c92df1",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -19367,7 +19367,7 @@ export const models = [
     expectedSize: 132471364,
     sha256Checksum:
       "105e9d66fd8756876b210a6b4aa03fc393b1eaca3a8dadcc8d9a3bc785c86a35",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -19386,7 +19386,7 @@ export const models = [
     expectedSize: 101405066,
     sha256Checksum:
       "19bd51f47a186069c752403518a40f7ea4c647455056d2511f7249691ecddf7c",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -19405,7 +19405,7 @@ export const models = [
     expectedSize: 420050,
     sha256Checksum:
       "6106950ebeb8a5da29ea22075f605db659cd07dbc288a68292543d9129aa250f",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19424,7 +19424,7 @@ export const models = [
     expectedSize: 420293,
     sha256Checksum:
       "8b97feb16d79ac0447136796708feac5f83dbabe92a5be1168212653c38729ae",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19443,7 +19443,7 @@ export const models = [
     expectedSize: 419887,
     sha256Checksum:
       "7eda5bccb4e6eb7f228fa182462d5fcf982d77628234603599027f0734d70c29",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19462,7 +19462,7 @@ export const models = [
     expectedSize: 419642,
     sha256Checksum:
       "e056fc2bee393edc8bff761eb28f33fb461e8dad828c3b05348a010ac1b7bb79",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19481,7 +19481,7 @@ export const models = [
     expectedSize: 419709,
     sha256Checksum:
       "ce7645ad7e3c13cca04e0d62bf890ef9ac401988005ba8f5e9c9b59257bc6931",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19500,7 +19500,7 @@ export const models = [
     expectedSize: 420510,
     sha256Checksum:
       "a04c823cbda6dd1c7de131ec68fea83bbb70d7f29d61623304eb871e3b83b5a1",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19519,7 +19519,7 @@ export const models = [
     expectedSize: 420285,
     sha256Checksum:
       "7ddd07bf873a3fd67d09ef4e8293b486beb658158b47e371166198e4c6926072",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19538,7 +19538,7 @@ export const models = [
     expectedSize: 420005,
     sha256Checksum:
       "e8e77a56459e4dc8cdfeb88e6f778dc9a0adf22e1184414f4b0e82a5d1edbe72",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19557,7 +19557,7 @@ export const models = [
     expectedSize: 419957,
     sha256Checksum:
       "95322725e4d25d9ed4e7dcccbf0f3726b0e9a2471d876b7942373218dbd30174",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19576,7 +19576,7 @@ export const models = [
     expectedSize: 419619,
     sha256Checksum:
       "be52f82327da63ff18481ce2dd8060c7df432e0168d748745ef3e21b92d706a5",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19595,7 +19595,7 @@ export const models = [
     expectedSize: 1500789,
     sha256Checksum:
       "b861580c56a0cba2a2b82aa697ecb3c5a163c3240c60a0ddfac369d21d054092",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -19614,7 +19614,7 @@ export const models = [
     expectedSize: 27348373,
     sha256Checksum:
       "ba0c8ea74aeb5df00d21a89b8d47c71317f47120232e3deef95024dba37dbd88",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -19633,7 +19633,7 @@ export const models = [
     expectedSize: 8645,
     sha256Checksum:
       "4dac5f986698a3ace9a97ea2545d43f6c8ba120d25e005f8c905128281be9b6d",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19652,7 +19652,7 @@ export const models = [
     expectedSize: 262134,
     sha256Checksum:
       "0c3800ba4fb1fc760c9070eb43a0ad5a68279ec165742591a68ea3edca452978",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19671,7 +19671,7 @@ export const models = [
     expectedSize: 132471364,
     sha256Checksum:
       "b3f82ecd2e9decc4e2236048b03628a1c1d5f14a792ba274a59b7325107aa6a6",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "fp32",
     params: "",
   },
@@ -19690,7 +19690,7 @@ export const models = [
     expectedSize: 420622,
     sha256Checksum:
       "1450bcad84a2790eaf73f85e763dd5bae7c399f55d692c4835cf4f7686b5a10f",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19709,7 +19709,7 @@ export const models = [
     expectedSize: 420905,
     sha256Checksum:
       "47c8d44445ef8ac8aae8ef5806feca21903483cbd4f1232e405184a40520a549",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19728,7 +19728,7 @@ export const models = [
     expectedSize: 420019,
     sha256Checksum:
       "93d17bf5e967d11b9119877bab9e3c6a43350f9146a8db265abba102f29cdb36",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19747,7 +19747,7 @@ export const models = [
     expectedSize: 420646,
     sha256Checksum:
       "325d8da46877089a67b7dfe1e59d04133d1f883754670af6b612a64b5ea697f2",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19766,7 +19766,7 @@ export const models = [
     expectedSize: 420080,
     sha256Checksum:
       "72fd8e30dc65d2ad18a4bfdc48c925b5635219c1cb09a93096a81707bd2f695e",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19785,7 +19785,7 @@ export const models = [
     expectedSize: 421053,
     sha256Checksum:
       "273c9ba6582d2e00383d8fbe2f5d660d86e8fba849c91ff695384d1a6e2e02f1",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19804,7 +19804,7 @@ export const models = [
     expectedSize: 421027,
     sha256Checksum:
       "26898a9ec3de1b5bf8cc3f6cbf41930543ca0403f2201e12aad849691ff315dd",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19823,7 +19823,7 @@ export const models = [
     expectedSize: 420483,
     sha256Checksum:
       "208b4f6d66ce68a1067602aa7e71b20d98d74a981ba14bdaa5df4df2c40e4068",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19842,7 +19842,7 @@ export const models = [
     expectedSize: 420577,
     sha256Checksum:
       "733eec0e79cfd8e506368cdad0e863cf581d172caa31b9d412be613fd8649120",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },
@@ -19861,7 +19861,7 @@ export const models = [
     expectedSize: 420456,
     sha256Checksum:
       "f0c80d2f423f8a916cf3a92ee4356d63622265a9ab34ea79994eb7f751d2d245",
-    engine: "ggml-tts",
+    engine: "onnx-tts",
     quantization: "",
     params: "",
   },

@@ -17,6 +17,13 @@ import {
 
 // Canonical engine → addon mapping (exhaustive). `as const` preserves
 // per-key literals so the addon can be derived from the engine at the type level.
+//
+// `"onnx-tts"` is the prior-canonical literal for TTS. It maps to the `tts`
+// addon bucket for `getModelInfo` reporting, but it is intentionally NOT
+// reachable through `LEGACY_ENGINE_TO_CANONICAL` and `inferModelTypeFromModelSrc`
+// short-circuits before falling through to the `addon` field — the new GGML
+// plugin can't load ONNX files, so consumers picking constants stamped with
+// this engine get an explicit error instead of a silent native failure.
 export const ENGINE_TO_ADDON = {
   [ModelType.llamacppCompletion]: "llm",
   [ModelType.whispercppTranscription]: "whisper",
@@ -27,6 +34,7 @@ export const ENGINE_TO_ADDON = {
   [ModelType.parakeetTranscription]: "parakeet",
   [ModelType.sdcppGeneration]: "diffusion",
   "onnx-vad": "vad",
+  "onnx-tts": "tts",
 } as const satisfies Record<ModelRegistryEngine, ModelRegistryEntryAddon>;
 
 // Legacy engine names → canonical engine.
