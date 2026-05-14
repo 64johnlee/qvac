@@ -14,10 +14,10 @@ import {
   BERGAMOT_EN_IT,
   MARIAN_EN_HI_INDIC_200M_Q4_0,
   MARIAN_HI_EN_INDIC_200M_Q4_0,
-  TTS_T3_CHATTERBOX_1,
-  TTS_S3GEN_CHATTERBOX_1,
-  TTS_SUPERTONIC,
-  TTS_SUPERTONIC2_SUPERTONIC,
+  TTS_T3_TURBO_EN_CHATTERBOX,
+  TTS_S3GEN_EN_CHATTERBOX,
+  TTS_EN_SUPERTONIC,
+  TTS_MULTILINGUAL_SUPERTONIC2,
   PARAKEET_TDT_0_6B_V3_Q8_0,
   PARAKEET_CTC_0_6B_Q8_0,
   PARAKEET_SORTFORMER_4SPK_V1_Q8_0,
@@ -220,37 +220,37 @@ const referenceAudioPath = path.resolve(process.cwd(), "assets/audio/transcripti
 // the s3gen GGUF as the decoder companion; Supertonic uses the single GGUF
 // per language.
 resources.define("tts-chatterbox", {
-  constant: TTS_T3_CHATTERBOX_1,
+  constant: TTS_T3_TURBO_EN_CHATTERBOX,
   type: "ggml-tts",
   preLoadUnload: true,
   config: {
     ttsEngine: "chatterbox",
     language: "en",
-    ttsT3ModelSrc: TTS_T3_CHATTERBOX_1,
-    ttsS3genModelSrc: TTS_S3GEN_CHATTERBOX_1,
+    ttsT3ModelSrc: TTS_T3_TURBO_EN_CHATTERBOX,
+    ttsS3genModelSrc: TTS_S3GEN_EN_CHATTERBOX,
     referenceAudioSrc: referenceAudioPath,
   },
 });
 
 resources.define("tts-supertonic", {
-  constant: TTS_SUPERTONIC,
+  constant: TTS_EN_SUPERTONIC,
   type: "ggml-tts",
   preLoadUnload: true,
   config: {
     ttsEngine: "supertonic",
     language: "en",
-    ttsSupertonicModelSrc: TTS_SUPERTONIC,
+    ttsSupertonicModelSrc: TTS_EN_SUPERTONIC,
   },
 });
 
 resources.define("tts-supertonic-multilingual", {
-  constant: TTS_SUPERTONIC2_SUPERTONIC,
+  constant: TTS_MULTILINGUAL_SUPERTONIC2,
   type: "ggml-tts",
   preLoadUnload: true,
   config: {
     ttsEngine: "supertonic",
     language: "es",
-    ttsSupertonicModelSrc: TTS_SUPERTONIC2_SUPERTONIC,
+    ttsSupertonicModelSrc: TTS_MULTILINGUAL_SUPERTONIC2,
   },
 });
 
