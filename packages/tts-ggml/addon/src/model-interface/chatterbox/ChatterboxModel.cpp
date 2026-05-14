@@ -8,6 +8,7 @@
 #include <filesystem>
 #include <stdexcept>
 #include <string>
+#include <thread>
 #include <vector>
 
 #include <tts-cpp/chatterbox/engine.h>
@@ -153,6 +154,18 @@ void ChatterboxModel::reload() {
 
 void ChatterboxModel::loadLocked() {
   if (engine_) return;
+
+  // TEMP WORKAROUND (option 3 from CRASH_REPORT.md): on iOS, the chatterbox
+  // engine constructor races against ggml-metal's async resource-set
+  // initializer when models are already cached on disk (warm relaunch). This
+  // causes a NULL pointer deref in `ggml_metal_buffer_is_shared` inside
+  // `bake_voice_conditioning`. The race window is ~1.2s; sleep here gives
+  // ggml-metal time to finish initializing before we touch it. Remove once
+  // tts-cpp upstream synchronizes Metal init in `Engine::Impl()`.
+#ifdef __APPLE__
+  std::this_thread::sleep_for(std::chrono::milliseconds(1500));
+#endif
+
   try {
     engine_ = std::make_shared<tts_cpp::chatterbox::Engine>(toEngineOptions(cfg_));
   } catch (const std::exception& e) {
