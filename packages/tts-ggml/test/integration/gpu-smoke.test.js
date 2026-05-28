@@ -123,10 +123,7 @@ function assertCpuBackend (t, engineTag, stats) {
 }
 
 test('Chatterbox GPU smoke - useGPU=true must engage the GPU backend on GPU-capable platforms', { timeout: 600000, skip: NO_GPU }, async (t) => {
-  if (platform === 'android') {
-    t.pass('Android: GPU disabled at engine boundary pending Vulkan/Mali + OpenCL/Adreno upstream fixes')
-    return
-  }
+  // Android Adreno GPU smoke un-quarantined for pre-merge Device Farm validation.
   const baseDir = getBaseDir()
   const modelsDir = path.join(baseDir, 'models')
 
