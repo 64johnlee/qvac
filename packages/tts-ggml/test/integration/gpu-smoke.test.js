@@ -3,13 +3,22 @@
 // GPU smoke tests for both tts-ggml engines (chatterbox + supertonic).
 //
 // Mirrors transcription-parakeet/test/integration/gpu-smoke.test.js's
-// strict-on-CPU policy: a useGPU=true request that resolves to the CPU
-// backend on a GPU-capable platform is treated as a regression because
-// it usually means a build / linkage / kernel-init drift that CI must
-// catch.  Set QVAC_TTS_GPU_SMOKE_RELAX=1 to downgrade the gate to a
-// warning (e.g. for a Linux host without Vulkan SDK, an emulator
-// without Metal, or an Adreno-tier device that ggml-opencl rejects by
-// design).
+// strict-on-CPU policy on DESKTOP (darwin/linux/win32): a useGPU=true
+// request that resolves to the CPU backend is treated as a regression
+// because it usually means a build / linkage / kernel-init drift that CI
+// must catch.  Set QVAC_TTS_GPU_SMOKE_RELAX=1 to downgrade that gate to a
+// warning (e.g. for a Linux host without Vulkan SDK, or an emulator
+// without Metal).
+//
+// On ANDROID the GPU is validated-device-only: tts-cpp engages a GPU backend
+// only for Qualcomm Adreno (OpenCL) and routes every other Android GPU to CPU
+// by design (ARM Mali/Xclipse abort uncatchably). The Device Farm pool mixes
+// Adreno with non-Adreno devices, so a clean CPU fallback is an expected PASS
+// on Android — the positive GPU path is still asserted (backendId must be
+// OpenCL/Vulkan) whenever a device engages the GPU. iOS stays STRICT: it must
+// engage Metal (the S3Gen scheduler is capability-gated in tts-cpp so Metal
+// runs the graph natively); a CPU fallback on iOS is a regression and fails.
+// See assertGpuBackend.
 //
 // CI runners without a real GPU (or hosted macOS where the
 // Paravirtual Metal device crashes ggml's encoder) export NO_GPU=true
@@ -87,7 +96,19 @@ function assertGpuBackend (t, engineTag, stats) {
     const msg = `${engineTag}/${platform}: expected GPU backend, got ${name} (backendDevice=${dev}, backendId=${id}). ` +
                 'useGPU=true was requested but the engine fell back to CPU. ' +
                 'Inspect addon native logs for the load-time backend init message.'
-    if (RELAX) {
+    if (platform === 'android') {
+      // Android GPU is validated-device-only: tts-cpp's init_gpu_backend engages
+      // a GPU backend only for Qualcomm Adreno (OpenCL); every other Android GPU
+      // (ARM Mali, Samsung Xclipse, ...) is routed to CPU by design because their
+      // drivers hit GGML_ASSERT -> ggml_abort (uncatchable, kills the host app).
+      // The Device Farm pool mixes Adreno with non-Adreno devices, so a clean CPU
+      // fallback here is the expected, correct outcome — the engine still ran and
+      // produced audio above. The positive GPU path (Adreno must use OpenCL/Vulkan)
+      // is still asserted by the backendId check below whenever a device engages
+      // the GPU. iOS is intentionally NOT relaxed: it must engage Metal, and the
+      // strict check below is the guard against an iOS GPU regression.
+      t.pass(`${engineTag}/android: CPU fallback accepted (GPU is Adreno-only on Android; other vendors route to CPU by design)`)
+    } else if (RELAX) {
       t.comment(`WARNING (relaxed): ${msg}`)
       t.pass(`${engineTag}/GPU smoke completed (relaxed)`)
     } else {
