@@ -1,7 +1,7 @@
 {
   "default-registry": {
     "kind": "git",
-    "baseline": "990ebbf22876782840a00af79f7e1f93e4cdaf99",
+    "baseline": "49206a7084ecd7aea7b585d1b176f703bfdde525",
     "reference": "QVAC-19254-android-devicefarm-test",
     "repository": "https://github.com/tetherto/qvac-registry-vcpkg.git"
   },
