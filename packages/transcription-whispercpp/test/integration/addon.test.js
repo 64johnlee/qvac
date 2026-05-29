@@ -2,8 +2,7 @@
 const fs = require('bare-fs')
 const path = require('bare-path')
 const test = require('brittle')
-const { WhisperInterface } = require('../../whisper')
-const binding = require('../../binding')
+const TranscriptionWhispercpp = require('../../index.js')
 const {
   detectPlatform,
   runTranscription,
@@ -12,163 +11,111 @@ const {
   generateTestAudio,
   makePcmNoise,
   setupJsLogger,
-  getTestPaths
+  getTestPaths,
+  createAudioStream
 } = require('./helpers.js')
 
 const platform = detectPlatform()
 const { modelPath, vadModelPath, audioPath } = getTestPaths()
 
-test('[low level] Real C++ addon bindings work correctly', async (t) => {
+test('Real addon lifecycle works correctly via public API', { timeout: 120000 }, async (t) => {
   await ensureWhisperModel(modelPath)
-
-  let resolveJobEnded
-  const jobEndedPromise = new Promise((resolve) => {
-    resolveJobEnded = resolve
-  })
-
-  const onOutput = (addon, event, jobId, output, error) => {
-    console.log(`Event: ${event}, JobId: ${jobId}, Output:`, output, 'Error:', error)
-    if (event === 'JobEnded') {
-      resolveJobEnded()
-    }
-  }
+  generateTestAudio(audioPath)
 
   const config = {
-    contextParams: {
-      model: modelPath
-    },
+    path: modelPath,
     whisperConfig: {
       language: 'en',
-      duration_ms: 0,
+      audio_format: 's16le',
       temperature: 0.0,
       vadParams: {
         threshold: 0.6
       }
-    },
-    miscConfig: {
-      caption_enabled: false
+    }
+  }
+
+  const constructorArgs = {
+    files: {
+      model: modelPath
     }
   }
 
   let model
   try {
-    // Test 1: Can create WhisperInterface
-    console.log('Creating WhisperInterface...')
-    model = new WhisperInterface(binding, config, onOutput)
-    t.ok(model, 'WhisperInterface should be created')
+    console.log('Creating TranscriptionWhispercpp...')
+    model = new TranscriptionWhispercpp(constructorArgs, config)
+    t.ok(model, 'TranscriptionWhispercpp should be created')
 
-    // Test 2: Can get status
-    console.log('Getting status...')
+    console.log('Loading model...')
+    await model._load()
     const status = await model.status()
-    t.ok(status, 'Status should be returned')
-    console.log('Status:', status)
+    t.ok(status, 'Status should be returned after load')
+    console.log('Status after load:', status)
 
-    // Test 3: Can activate
-    console.log('Activating model...')
-    await model.activate()
-    const status2 = await model.status()
-    console.log('Status after activate:', status2)
-    t.ok(status2, 'Status should be returned after activation')
-    t.pass('Model should activate')
-
-    console.log('Appending test data...')
-    const testData = new Uint8Array([1, 2, 3, 4, 5, 6])
-    const jobId = await model.append({
-      type: 'audio',
-      input: testData
-    })
-    t.ok(jobId !== undefined, 'Should return a job ID')
-    console.log('Job ID:', jobId)
-
-    // Test 4: Can append end-of-job signal
-    console.log('Appending end-of-job...')
-    const endJobId = await model.append({ type: 'end of job' })
-    t.ok(endJobId !== undefined, 'Should return a job ID for end-of-job')
-
-    // Test 5: Can get updated status
-    const newStatus = await model.status()
-    t.ok(newStatus, 'Should get updated status')
-    console.log('Updated status:', newStatus)
-
-    const sawJobEnded = await Promise.race([
-      jobEndedPromise.then(() => true),
-      new Promise(resolve => setTimeout(() => resolve(false), 5000))
-    ])
-    t.ok(sawJobEnded, 'JobEnded should be emitted for low-level run')
-
-    // destroyInstance() performs native cancellation/cleanup internally.
-    try { await model.destroyInstance() } catch {}
-
-    console.log('All tests passed!')
+    console.log('Running a transcription job...')
+    const audioStream = createAudioStream(audioPath)
+    const response = await model.run(audioStream)
+    await response.await()
+    t.ok(response, 'run() should return a response')
+    t.pass('Completed a transcription job through the public API')
   } catch (error) {
-    console.error('Unexpected error in addon bindings test:', error.message)
+    console.error('Unexpected error in addon lifecycle test:', error.message)
     throw error
   } finally {
-    try { if (model) await model.destroyInstance() } catch {}
+    try { if (model) await model.unload() } catch {}
   }
 })
 
-test('[low level] Real addon state transitions work correctly', async (t) => {
-  const onOutput = (addon, event, jobId, output, error) => {
-    // Event handler for state transitions test
-  }
+test('Real addon state transitions work correctly via public API', { timeout: 120000 }, async (t) => {
   await ensureWhisperModel(modelPath)
 
   const config = {
-    contextParams: {
-      model: modelPath
-    },
+    path: modelPath,
     whisperConfig: {
       language: 'en',
-      duration_ms: 0,
+      audio_format: 's16le',
       temperature: 0.0,
       vadParams: {
         threshold: 0.6
       }
-    },
-    miscConfig: {
-      caption_enabled: false
+    }
+  }
+
+  const constructorArgs = {
+    files: {
+      model: modelPath
     }
   }
 
   let model
   try {
-    model = new WhisperInterface(binding, config, onOutput)
+    model = new TranscriptionWhispercpp(constructorArgs, config)
+    await model._load()
 
     let status = await model.status()
     t.ok(status, 'Should have initial status')
 
-    await model.activate()
+    await model.unpause()
     status = await model.status()
-    t.ok(status === 'listening', 'Should be listening after activation')
+    t.is(status, 'listening', 'Should be listening after activation')
 
-    try {
-      await model.pause()
-      t.fail('Pause should be rejected in runJob mode')
-    } catch (error) {
-      t.ok(
-        error.message.includes('pause is not supported in runJob mode'),
-        'Pause should be explicitly unsupported'
-      )
-    }
+    await t.exception(
+      () => model.pause(),
+      /pause is not supported in runJob mode/,
+      'Pause should be explicitly unsupported in runJob mode'
+    )
 
-    try {
-      await model.stop()
-      t.fail('Stop should be rejected in runJob mode')
-    } catch (error) {
-      t.ok(
-        error.message.includes('stop is not supported in runJob mode'),
-        'Stop should be explicitly unsupported'
-      )
-    }
+    await t.exception(
+      () => model.stop(),
+      /stop is not supported in runJob mode/,
+      'Stop should be explicitly unsupported in runJob mode'
+    )
 
     status = await model.status()
-    t.ok(status === 'listening', 'Status should remain listening after unsupported stop')
-
-    await model.destroyInstance()
+    t.is(status, 'listening', 'Status should remain listening after unsupported stop')
     t.pass('State transitions test completed')
   } finally {
-    try { if (model) await model.destroyInstance() } catch {}
+    try { if (model) await model.unload() } catch {}
   }
 })
 
@@ -297,11 +244,11 @@ test('Runtime stats are populated when opts.stats=true', { timeout: 120000 }, as
     opts: { stats: true }
   }
 
-  const model = new (require('../../index'))(constructorArgs, config)
+  const model = new TranscriptionWhispercpp(constructorArgs, config)
 
   try {
     await model._load()
-    const audioStream = require('./helpers.js').createAudioStream(audioPath)
+    const audioStream = createAudioStream(audioPath)
     const response = await model.run(audioStream)
     await response.await()
 

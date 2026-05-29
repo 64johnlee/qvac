@@ -1,10 +1,17 @@
 'use strict'
 require('./integration-runtime.cjs')
 
+// AUTO-GENERATED FILE. Run `npm run test:mobile:generate` to update.
+// Each function mirrors a single file under test/integration/.
+
 /* global runIntegrationModule */
 
 async function runAccuracyMultilangTest (options = {}) { // eslint-disable-line no-unused-vars
   return runIntegrationModule('../integration/accuracy-multilang.test.js', options)
+}
+
+async function runAddonTest (options = {}) { // eslint-disable-line no-unused-vars
+  return runIntegrationModule('../integration/addon.test.js', options)
 }
 
 async function runAudioCtxChunkingTest (options = {}) { // eslint-disable-line no-unused-vars
@@ -23,7 +30,7 @@ async function runLiveStreamSimulationTest (options = {}) { // eslint-disable-li
   return runIntegrationModule('../integration/live-stream-simulation.test.js', options)
 }
 
-async function runLongEsTest (options = {}) { // eslint-disable-line no-unused-vars
+async function runLongESTest (options = {}) { // eslint-disable-line no-unused-vars
   return runIntegrationModule('../integration/longES.test.js', options)
 }
 
@@ -41,4 +48,18 @@ async function runModelFileValidationTest (options = {}) { // eslint-disable-lin
 
 async function runMultipleTranscriptionsTest (options = {}) { // eslint-disable-line no-unused-vars
   return runIntegrationModule('../integration/multiple-transcriptions.test.js', options)
+}
+
+module.exports = {
+  runAccuracyMultilangTest,
+  runAddonTest,
+  runAudioCtxChunkingTest,
+  runColdStartTimingTest,
+  runCorruptedModelTest,
+  runLiveStreamSimulationTest,
+  runLongESTest,
+  runMobilePerfTinyCpuTest,
+  runMobilePerfTinyGpuTest,
+  runModelFileValidationTest,
+  runMultipleTranscriptionsTest
 }
