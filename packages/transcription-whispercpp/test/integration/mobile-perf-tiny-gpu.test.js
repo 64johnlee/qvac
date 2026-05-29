@@ -13,10 +13,12 @@ test('Mobile perf tiny GPU', { timeout: 600000 }, async (t) => {
   // quarantine — keep the case skip-as-pass on Android until the
   // underlying whisper GPU shutdown issue is fixed and the Samsung path
   // is stable.
-  if (detectPlatform().startsWith('android')) {
-    t.pass('Whisper tiny GPU quarantined on Android pending Samsung crash investigation')
-    return
-  }
+  // TEMP LOCAL-ONLY: quarantine lifted to verify GPU usage on a Mali device.
+  // REVERT before committing — Samsung S25 (Adreno) crashes on GPU teardown.
+  // if (detectPlatform().startsWith('android')) {
+  //   t.pass('Whisper tiny GPU quarantined on Android pending Samsung crash investigation')
+  //   return
+  // }
 
   await runMobilePerfCase(t, {
     modelFile: 'ggml-tiny.bin',
